@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="index">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>风云直播 - DEMO</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body ng-controller="IndexController">
+    <div id="header">
+        风云直播
+    </div>
+    <div id="content">
+        <div class="type-wrap {{type.status}}" ng-repeat="type in types">
+            <h1 class="type-title" ng-click="click(type)">{{type.name}}</h1>
+            <ul class="type-list">
+                <li class="program {{program.type}} color{{program.color}}" ng-repeat="program in type.programs" style="background-image:url({{program.img}})">                    
+                    <div class="details">
+                        <h3 class="program-name">{{program.name}}</h3>
+                        <label class="program-time">{{program.time}}</label>
+                        <p class="program-desc">高端大气上档次，低调奢华有内涵。</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="cover" ng-click="click(type)"></div>
+        </div>
+    </div>
+    <script src="js/lib/angular.min.js"></script>    
+    <script src="js/controller.js"></script>
+</body>
+</html>

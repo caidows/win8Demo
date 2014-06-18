@@ -1,0 +1,158 @@
+html, body {
+    width:100%;
+    height: 100%;
+}
+body {
+    font-family:"microsoft yahei";
+    background: url(../img/bg.jpg) repeat;
+    background-size: cover;
+}
+#header{
+	position: absolute;
+	left:20px;
+	top:20px;
+	font-size:40px;
+	line-height: 40px;
+	color:white;
+}
+#content {
+    padding:10px;
+    padding-top:90px;
+    height: calc(100% - 110px);
+    overflow:hidden;
+}
+.type-wrap {
+	position: relative;
+    width: calc((100% - 20px * 2 - 40px * 3) / 3);
+    height:100%;
+    margin-right: 20px;
+    padding:20px;
+    float:left;
+    background: rgba(0, 0, 0, 0.3);    
+    opacity:0;
+   	transition:width .4s, opacity .2s;
+    &:last-child {
+        margin-right:0;
+    }
+
+	&.focus{
+		width:63%;
+	}
+
+	&.sub{
+		width: calc((37% - 20px * 2 - 40px * 3) / 2);
+		.cover{
+			height: 100%;
+			background: rgba(0,0,0,0.5);
+		}
+	}
+
+	&.show{
+		opacity:1;
+	}
+
+    .type-title {
+        color:white;
+        font-size:36px;
+        line-height: 36px;
+        font-weight: normal;
+    }
+    .type-list {
+        margin-top:20px;
+		column-width:250px;
+		-webkit-column-width:250px; 
+		-webkit-column-gap:0px; 
+		-webkit-column-rule-width:0px;
+
+        .program {
+            position: relative;
+            height:125px;
+            overflow:hidden;
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center center;
+            cursor:pointer;            
+            &.live {
+                width: 250px;
+                height:250px;
+                max-width: 100%;
+                clear: both;clear: both;
+                .details {
+                    .program-name {
+                        font-size:18px;
+                    }
+                    .program-time {
+                        font-size:16px;
+                    }
+                }
+            }
+            &.big {
+                width: 250px;
+                max-width: 100%;                
+            }
+            &.small {
+                width: 125px;
+                max-width: 50%;
+				float: left;
+            }
+			&:hover{
+				.details{
+					height: 70px;
+					.program-desc{					
+						display: block;
+					}
+				}
+				
+			}
+
+            .snap {
+                max-width: 100%;
+                max-height: 100%;
+            }
+            .details {
+                position: absolute;
+                background: green;                
+                width: 100%;
+                height: 50px;
+                bottom: 0;
+                right: 0;
+                color:white;
+                text-align: right;
+                transition: all .2s;
+                .program-name {
+                	margin-right:10px;
+                    font-weight: normal;
+                    font-size:16px;
+                }
+                .program-time {
+                	margin-right:10px;
+                    font-size:14px;
+                }
+                .program-desc{
+                	text-align: center;                	
+                }
+            }
+        }
+    }
+
+    .cover{
+    	position: absolute;
+    	top:0;
+    	left:0;
+    	width: 100%;
+    	height: 0;
+    	transition:all .4s;
+    }
+}
+
+
+$bgc:#2FB1BE #F2854C #85A9C3 #04ACAD #EBB741 #EF3A5B #385E82 #8BBA30;
+
+@for $i from 1 to 9 {
+  .color#{$i} {
+	background-color: nth($bgc, $i);
+	.details{
+		background-color: nth($bgc, $i) !important; 
+	}
+  };
+}
